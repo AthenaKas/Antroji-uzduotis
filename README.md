@@ -12,7 +12,7 @@ Vartotojas turi 3 pasirinkimus:
 1. Programos realizaciją (versiją v1.0) pakeista taip, kad vietoje sukurtos data structūros jos pagrindu sukurta class'ę data.
 2. Struct ir Class realizacijos sparta (palyginimas):
 <img width="524" alt="image" src="https://user-images.githubusercontent.com/99173750/166108077-da231658-35b7-4ccf-91bd-c3a9600196f5.png">
-3. 
+
 
 # Pirmoji-užduotis
 
