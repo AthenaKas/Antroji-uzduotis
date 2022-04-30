@@ -6,11 +6,14 @@ void ivestis(data& a, int& n)
 	char x; //skirtas patikrinti ar ivedamas pazymys yra skaicius
 	int y = 0; // generacija/suvedimas
 
-
-	cout << "Iveskite varda: "; cin >> a.vard;
-	cout << "Iveskite pavarde: "; cin >> a.pav;
-
+	string vardas, pavarde;
+	cout << "Iveskite varda: "; cin >> vardas;
+	a.setvard(vardas);
+	cout << "Iveskite pavarde: "; cin >> pavarde;
+	a.setpav(pavarde);
 	cout << "Ar atsitiktinai sugeneruoti pazymius ? [y/n] "; cin >> anw;
+
+	int pazymys, egzaminas, pazi;
 
 	do
 	{
@@ -40,7 +43,8 @@ void ivestis(data& a, int& n)
 				{
 					if (isdigit(x)) //tiktina ar ivesta reiksme skaicius
 					{
-						a.paz[i] = x - 48;
+						pazymys = x - 48;
+						a.setpaz(i, pazymys);
 						n++;
 					}
 					else
@@ -52,7 +56,8 @@ void ivestis(data& a, int& n)
 				}
 			}
 			n--;
-			cout << "Iveskite egzamino ivertinima: "; cin >> a.egz;
+			cout << "Iveskite egzamino ivertinima: "; cin >> egzaminas;
+			a.setegz(egzaminas);
 
 			y++;
 		}
@@ -65,10 +70,12 @@ void ivestis(data& a, int& n)
 			n = dist(mt);
 
 			for (int i = 0; i < n; i++) {
-				a.paz[i] == dist(mt);
+				pazi = dist(mt);
+				a.setpaz(i, pazi);
 			}
 
-			a.egz = dist(mt);
+			egzaminas = dist(mt);
+			a.setegz(egzaminas);
 
 			y++;
 		}
@@ -81,15 +88,56 @@ void ivestis(data& a, int& n)
 }
 void rezultatai(data& a)
 {
-	cout << setw(20) << a.vard << " | " << setw(20) << a.pav << " | ";
+	cout << setw(20) << a.getvard() << " | " << setw(20) << a.getpav() << " | ";
 
-	cout << setw(20) << setprecision(2) << fixed << a.vidrezult << " | ";
+	cout << setw(20) << setprecision(2) << fixed << a.getvid() << " | ";
 
-	cout << setw(20) << setprecision(2) << fixed << a.medrezult << endl;
+	cout << setw(20) << setprecision(2) << fixed << a.getmed() << endl;
 }
 bool rikiavimas(const data& a, const data& b)
 {
-	return a.vard < b.vard;
+	return a.getvard() < b.getvard();
+}
+void galutinisvid(data& a, int& n) //su vidurkiu
+{
+	double vid;
+	int suma;
+
+	vid = 0;
+	suma = 0;
+
+	int pazymys;
+	double vidurkis;
+
+	for (int i = 0; i < n; i++)
+	{
+		suma += a.getpaz(i);
+	}
+
+	vid = suma / (double)(n);
+
+	vidurkis = 0.4 * vid + 0.6 * a.getegz();
+	a.setvid(vidurkis);
+}
+void galutinismed(data& a, int& n, vector<data>& sarasas)//su mediana
+{
+	double med;
+	double mediana;
+
+	//sort(a.getpaz(), a.getpaz() + n);
+
+	if (n % 2 != 0)
+	{
+		med = (double)a.getpaz(n/2);
+	}
+	else
+	{
+		med = (double)(a.getpaz((n-1)/2) + a.getpaz(n/2)) / 2;
+	}
+
+	mediana = 0.4 * med + 0.6 * a.getegz();
+	a.setmed(mediana);
+
 }
 void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, vector<data>& vargsiukai)
 {
@@ -103,7 +151,7 @@ void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, 
 	string anwn;
 	int m = 0;
 	int z = 0;
-	//int kiek = 0;
+	
 	Timer t2;
 		string tittle; //zodzio string
 		while (tittle != "Egz.") {
@@ -113,18 +161,23 @@ void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, 
 				m++;
 			}
 		}
-
+		string vardas, pavarde;
+		int pazymys, egzaminas;
 		while (open_f) {
 			if (!open_f.eof()) {
 
-				std::getline(open_f, a.vard, ' ');
-				std::getline(open_f, a.pav, ' ');
+				std::getline(open_f, vardas, ' ');
+				a.setvard(vardas);
+				std::getline(open_f, pavarde, ' ');
+				a.setpav(pavarde);
 
 				for (int i = 0; i < m; i++)
 				{
-					open_f >> a.paz[i];
+					open_f >> pazymys;
+					a.setpaz(i, pazymys);
 				}
-				open_f >> a.egz;
+				open_f >> egzaminas;
+				a.setegz(egzaminas);
 
 				galutinisvid(a, m);
 
@@ -140,7 +193,7 @@ void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, 
 
 		open_f.close();
 		cout << "Duomenu nuskaitymas is failo ir galutinio pazymio suskaiciavimas: " << t2.elapsed() << " s" << endl;
-		//cout << z << endl;
+		
 
 		sort(sarasas.begin(), sarasas.end(), rikiavimas);
 
@@ -148,11 +201,11 @@ void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, 
 		for (int i = 0; i < sarasas.size() - 1; i++)
 		{
 
-			if (sarasas[i].vidrezult < 5.0)
+			if (sarasas[i].getvid() < 5.0)
 			{
 				vargsiukai.push_back(sarasas[i]);
 			}
-			else if (sarasas[i].vidrezult >= 5.0)
+			else if (sarasas[i].getvid() >= 5.0)
 			{
 				kietiakai.push_back(sarasas[i]);
 			}
@@ -176,7 +229,7 @@ void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, 
 			}x++;
 			
 		}*/
-		cout << "Studentu isskirstymas i viena vargsiuku vektoriu: " << t1v.elapsed() << " s" << endl;
+		//cout << "Studentu isskirstymas i viena vargsiuku vektoriu: " << t1v.elapsed() << " s" << endl;
 
 
 		//------------------------------------------------------------------------
@@ -198,17 +251,17 @@ void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, 
 		Timer t3;
 		for (int i = 1; i < vargsiukai.size(); i++)
 		{
-			out_f << setw(20) << vargsiukai[i].vard << " | " << setw(20) << vargsiukai[i].pav << " | ";
+			out_f << setw(20) << vargsiukai[i].getvard() << " | " << setw(20) << vargsiukai[i].getpav() << " | ";
 
-			out_f << setw(20) << setprecision(2) << fixed << vargsiukai[i].vidrezult << " | ";
+			out_f << setw(20) << setprecision(2) << fixed << vargsiukai[i].getvid() << " | ";
 
 		}
 		for (int i = 1; i < kietiakai.size(); i++)
 		{
 
-			out_k << setw(20) << kietiakai[i].vard << " | " << setw(20) << kietiakai[i].pav << " | ";
+			out_k << setw(20) << kietiakai[i].getvard() << " | " << setw(20) << kietiakai[i].getpav() << " | ";
 
-			out_k << setw(20) << setprecision(2) << fixed << kietiakai[i].vidrezult << " | ";
+			out_k << setw(20) << setprecision(2) << fixed << kietiakai[i].getvid() << " | ";
 
 		}
 		out_k.close();
@@ -229,11 +282,11 @@ void firasimas(data& a, int& n, vector<data>& sarasas)
 
 	for (int i = 0; i < sarasas.size(); i++) //ispauzdinimas i faila
 	{
-		out_f << setw(20) << sarasas[i].vard << " | " << setw(20) << sarasas[i].pav << " | ";
+		out_f << setw(20) << sarasas[i].getvard() << " | " << setw(20) << sarasas[i].getpav() << " | ";
 
-		out_f << setw(20) << setprecision(2) << fixed << sarasas[i].vidrezult << " | ";
+		out_f << setw(20) << setprecision(2) << fixed << sarasas[i].getvid() << " | ";
 
-		out_f << setw(20) << setprecision(2) << fixed << sarasas[i].medrezult;
+		out_f << setw(20) << setprecision(2) << fixed << sarasas[i].getmed();
 	}
 	out_f.close();
 

@@ -18,6 +18,8 @@ int main()
 	int k = 0; //failo studentu kiekis
 	int p, s;
 	std::stringstream my_buffer;
+	double vid;
+	int suma;
 
 
 	cout << "Ar nuskaityti studentu duomenys is failo ? [1]" << endl;
@@ -57,7 +59,7 @@ int main()
 
 				galutinisvid(laik, n);
 
-				galutinismed(laik, n);
+				galutinismed(laik, n, sarasas);
 
 				sarasas.push_back(laik);
 
@@ -123,18 +125,23 @@ int main()
 						m++;
 					}
 				}
-
+				string pavadinimas;
+				int pazymys, egzaminas;
 				while (open_f) {
 					if (!open_f.eof()) {
 
-						std::getline(open_f, laik.vard, ' ');
-						std::getline(open_f, laik.pav, ' ');
+						std::getline(open_f, pavadinimas, ' ');
+						laik.setvard(pavadinimas);
+						std::getline(open_f, pavadinimas, ' ');
+						laik.setpav(pavadinimas);
 
 						for (int i = 0; i < m; i++)
 						{
-							open_f >> laik.paz[i];
+							open_f >> pazymys;
+							laik.setpaz(i, pazymys);
 						}
-						open_f >> laik.egz;
+						open_f >> egzaminas;
+						laik.setegz(egzaminas);
 
 						galutinisvid(laik, m);
 
@@ -156,11 +163,11 @@ int main()
 				for (int i = 0; i < sarasas.size() - 1; i++)
 				{
 
-					if (sarasas[i].vidrezult < 5.0)
+					if (sarasas[i].getvid() < 5.0)
 					{
 						vargsiukai.push_back(sarasas[i]);
 					}
-					else if (sarasas[i].vidrezult >= 5.0)
+					else if (sarasas[i].getvid() >= 5.0)
 					{
 						kietiakai.push_back(sarasas[i]);
 					}
@@ -205,17 +212,17 @@ int main()
 			Timer t3;
 			for (int i = 1; i < vargsiukai.size(); i++)
 			{
-					out_f << setw(20) << vargsiukai[i].vard << " | " << setw(20) << vargsiukai[i].pav << " | ";
+					out_f << setw(20) << vargsiukai[i].getvard() << " | " << setw(20) << vargsiukai[i].getpav() << " | ";
 
-					out_f << setw(20) << setprecision(2) << fixed << vargsiukai[i].vidrezult << " | ";
+					out_f << setw(20) << setprecision(2) << fixed << vargsiukai[i].getvid() << " | ";
 
 			}
 			for (int i = 1; i < kietiakai.size(); i++)
 			{
 
-				out_k << setw(20) << kietiakai[i].vard << " | " << setw(20) << kietiakai[i].pav << " | ";
+				out_k << setw(20) << kietiakai[i].getvard() << " | " << setw(20) << kietiakai[i].getpav() << " | ";
 
-				out_k << setw(20) << setprecision(2) << fixed << kietiakai[i].vidrezult << " | ";
+				out_k << setw(20) << setprecision(2) << fixed << kietiakai[i].getvid() << " | ";
 
 			}
 	
