@@ -7,6 +7,10 @@ Vartotojas turi 3 pasirinkimus:
 2. Įvesti duomenis rankiniu būdu: Įvesti vardą, pavardę, pasirinkti ar pažymius vesti rankiniu būdu ar sugeneruoti;
 3. Sugeneruoti studentų duomenų failą: Pasirinkti ar nuskaitytisugeneruotą failą ar ne;
 
+## Antroji užduotis v1.2
+Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
+1. Papildyta: copy constructor, copy assignment operator taip pat destructor (bet 'užkomentuota' dėl netikslumų)
+
 ## Pirmoji užduotis v1.1
 Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
 1. Programos realizaciją (versiją v1.0) pakeista taip, kad vietoje sukurtos data structūros jos pagrindu sukurta class'ę data.
