@@ -211,26 +211,7 @@ void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, 
 			}
 		}
 		cout << "Studentu isskirstymas i du vektorius: " << t1.elapsed() << " s" << endl;
-		vargsiukai.clear();
-		//---
-		Timer t1v;
-
-		/*vector<data> ::iterator it; it = sarasas.begin(); sarasas.erase(it);
-		int x = 0;
-		for (int i = 0; i < sarasas.size(); i++)
-		{
-
-			if (sarasas[x].vidrezult < 5.0)
-			{
-				it = sarasas.begin() + x;
-				vargsiukai.push_back(sarasas[x]);
-				sarasas.erase(it);
-				x--;
-			}x++;
-			
-		}*/
-		//cout << "Studentu isskirstymas i viena vargsiuku vektoriu: " << t1v.elapsed() << " s" << endl;
-
+		
 
 		//------------------------------------------------------------------------
 		std::ofstream out_f("vargsiukai.txt");

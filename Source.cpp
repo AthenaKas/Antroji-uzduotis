@@ -1,4 +1,26 @@
 #include "header.h"
+
+//data::~data() {cout << "destructor"<< endl;}
+
+data::data(const data& d) // copy konstruktorius
+{
+    vard = d.vard;
+    pav = d.pav;
+    egz = d.egz;
+    vidrezult = d.vidrezult;
+    medrezult = d.medrezult;
+}
+
+data& data::operator=(const data& d) {
+    if (&d == this) return *this;
+    vard = d.vard;
+    pav = d.pav;
+    egz = d.egz;
+    vidrezult = d.vidrezult;
+    medrezult = d.medrezult;
+    return *this;
+}
+
 void data::setmed(double sk) { medrezult = sk; }
 double data::getmed() const { return medrezult; }
 
@@ -15,3 +37,4 @@ void data::setvard(string vardas) { vard = vardas; }
 void data::setpav(string pavarde) { pav = pavarde; }
 string data::getvard() const { return vard; }
 string data::getpav() const { return pav; }
+

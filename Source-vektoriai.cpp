@@ -4,12 +4,12 @@
 
 int main()
 {
-	Timer t;
+	
 	long long int N = 1;
 	vector<data> sarasas;
 	vector<data> vargsiukai;
 	vector<data> kietiakai;
-	vector<data> mokinys[100];
+	//vector<data> mokinys[100];
 	data laik;
 	string anw; // ats: apie dar vieno studento duomenu vedima
 	string Ranw; //ats: duomenu gavimo pasirinkimas
@@ -26,7 +26,7 @@ int main()
 	cout << "Ar norite ivesti studentu duomenis rankiniu budu? [2]" << endl;
 	cout << "Ar norite sugeneruoti studentu duomenu faila? [3] " << endl; 
 	cin >> Ranw;
-
+	Timer t;
 	
 	ifstream fd(CDfv);
 
@@ -174,25 +174,8 @@ int main()
 				}
 				cout << "Studentu isskirstymas i du vektorius: " << t1.elapsed() << " s" << endl;
 				
-				//---
-			/*	Timer t1v;
-
-				vector<data> ::iterator it; it = sarasas.begin(); sarasas.erase(it);
-				int x = 0;
-				it = sarasas.begin() + x;
-				for (int i = 0; i < sarasas.size(); i++)
-				{
-
-					if (it->vidrezult < 5.0)
-					{
-						it = sarasas.begin() + x;
-						vargsiukai.push_back(*it);
-						sarasas.erase(it);
-						x--;
-					}x++;
-
-				}
-				cout << "Studentu isskirstymas i viena vargsiuku vektoriu: " << t1v.elapsed() << " s" << endl;*/
+			
+			
 			
 			//------------------------------------------------------------------------
 			std::ofstream out_f("vargsiukai.txt");
