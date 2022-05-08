@@ -34,10 +34,14 @@ private:
 	double vidrezult, medrezult;
 public: 
 	data() {
+		egz = 0;
 		vidrezult = 0;
-		egz = 0; 
 		medrezult = 0;
 	}
+	//destruktorius
+	//~data();
+	data(const data& d); // copy konstruktorius
+	data& operator=(const data& d); //
 	// vid
 	void setvid(double sk);
 	double getvid() const;
