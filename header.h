@@ -25,8 +25,18 @@ using std::vector;
 using std::ifstream;
 using std::to_string;
 
+class student {
+protected:
+	string vard, pav;
+public:
+	string getvard() const { return vard; }
+	string getpav() const { return pav; }
+	virtual void setvard(string vardas) = 0;
+	virtual void setpav(string pavarde) = 0;
 
-class data
+	student (string v = "", string p = "") : vard{v}, pav{p}{}
+};
+class data : public student
 {
 private:
 	string vard, pav;
@@ -38,10 +48,10 @@ public:
 		vidrezult = 0;
 		medrezult = 0;
 	}
-	//destruktorius
-	//~data();
+	        
+	~data(); //destruktorius
 	data(const data& d); // copy konstruktorius
-	data& operator=(const data& d); //
+	data& operator=(const data& d); // copy assignment
 	// vid
 	void setvid(double sk);
 	double getvid() const;
@@ -56,10 +66,10 @@ public:
 	int getpaz(int i) const;
 	//vard
 	void setvard(string vardas);
-	string getvard() const;
+	//string getvard() const;
 	//pav
 	void setpav(string pavarde);
-	string getpav() const;
+	//string getpav() const;
 	
 };
 

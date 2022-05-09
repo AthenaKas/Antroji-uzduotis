@@ -245,4 +245,5 @@ int main()
 		kietiakai.clear();
 
 		cout << "Visos programos veikimas " << t.elapsed() << " s" << endl;
+		//student stude;
 }
