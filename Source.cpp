@@ -39,6 +39,4 @@ int data::getpaz(int i) const { return paz[i]; }
 
 void data::setvard(string vardas) { vard = vardas; }
 void data::setpav(string pavarde) { pav = pavarde; }
-//string data::getvard() const { return vard; }
-//string data::getpav() const { return pav; }
 

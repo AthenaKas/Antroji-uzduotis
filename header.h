@@ -31,15 +31,15 @@ protected:
 public:
 	string getvard() const { return vard; }
 	string getpav() const { return pav; }
-	virtual void setvard(string vardas) = 0;
-	virtual void setpav(string pavarde) = 0;
+	virtual void setvard(string vard) = 0;
+	virtual void setpav(string pav) = 0;
 
 	student (string v = "", string p = "") : vard{v}, pav{p}{}
 };
 class data : public student
 {
 private:
-	string vard, pav;
+	
 	int paz[20],  egz;
 	double vidrezult, medrezult;
 public: 
@@ -48,6 +48,8 @@ public:
 		vidrezult = 0;
 		medrezult = 0;
 	}
+
+	data(int paz[20], int egz , double vidrezult, double medrezult, string vard, string pav) : student(vard, pav) {}
 	        
 	~data(); //destruktorius
 	data(const data& d); // copy konstruktorius
@@ -66,10 +68,9 @@ public:
 	int getpaz(int i) const;
 	//vard
 	void setvard(string vardas);
-	//string getvard() const;
 	//pav
 	void setpav(string pavarde);
-	//string getpav() const;
+	
 	
 };
 
