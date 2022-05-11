@@ -7,9 +7,14 @@ Vartotojas turi 3 pasirinkimus:
 2. Įvesti duomenis rankiniu būdu: Įvesti vardą, pavardę, pasirinkti ar pažymius vesti rankiniu būdu ar sugeneruoti;
 3. Sugeneruoti studentų duomenų failą: Pasirinkti ar nuskaitytisugeneruotą failą ar ne;
 
+## Trečioji užduotis v1.5
+Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
+1.Vietoje turimos vienos Data klasės sukurtos dvi: bazinė klasė - Student, skirtą bendrai aprašyti žmogų ir tuomet iš jos išvestinė (derived) klasė - Data.
+2.Student bazinė klasė - abstrakčioji klasė,
+
 ## Antroji užduotis v1.2
 Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
-1. Papildyta: copy constructor, copy assignment operator taip pat destructor (bet 'užkomentuota' dėl netikslumų)
+1. Papildyta: copy constructor, copy assignment operator taip pat destructor.
 
 ## Pirmoji užduotis v1.1
 Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
