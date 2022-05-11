@@ -9,7 +9,7 @@ int main()
 	vector<data> sarasas;
 	vector<data> vargsiukai;
 	vector<data> kietiakai;
-	//vector<data> mokinys[100];
+	
 	data laik;
 	string anw; // ats: apie dar vieno studento duomenu vedima
 	string Ranw; //ats: duomenu gavimo pasirinkimas

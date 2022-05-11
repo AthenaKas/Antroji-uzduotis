@@ -2,7 +2,7 @@
 
 data::~data() //destructor
 {
-    //cout << "destructor" << endl;
+    std::fill_n(paz, 20, 0);
 }
 
 data::data(const data& d) // copy konstruktorius

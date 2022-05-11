@@ -9,6 +9,7 @@
 #include <random>
 #include <chrono>
 #include <sstream>
+#include <array>
 //
 #include <stdio.h>
 #include <stdlib.h>
