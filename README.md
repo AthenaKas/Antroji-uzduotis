@@ -10,8 +10,7 @@ Vartotojas turi 3 pasirinkimus:
 ## Ketvirtoji užduotis v2.0
 Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
 1.Sukurkita dokumentacija panaudojant Doxygen 1.5 projekto pagrindu.
-2.Atlikti Unit Testai.
-3.Sukurktas 1.5 versijai automatinis įdiegimo failas (setup.exe)
+2.Sukurtas 1.5 versijai automatinis įdiegimo failas (setup.exe)
 
 ## Trečioji užduotis v1.5
 Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
