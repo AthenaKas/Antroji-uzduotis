@@ -7,6 +7,11 @@ Vartotojas turi 3 pasirinkimus:
 2. Įvesti duomenis rankiniu būdu: Įvesti vardą, pavardę, pasirinkti ar pažymius vesti rankiniu būdu ar sugeneruoti;
 3. Sugeneruoti studentų duomenų failą: Pasirinkti ar nuskaitytisugeneruotą failą ar ne;
 
+## Ketvirtoji užduotis v2.0
+Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
+1.Sukurkita dokumentacija panaudojant Doxygen 1.5 projekto pagrindu.
+2.Sukurtas 1.5 versijai automatinis įdiegimo failas (setup.exe)
+
 ## Trečioji užduotis v1.5
 Šioje versijoje yra apskaičiuojamas studento ar studentų galutinis įvertinimas;
 1.Vietoje turimos vienos Data klasės sukurtos dvi: bazinė klasė - Student, skirtą bendrai aprašyti žmogų ir tuomet iš jos išvestinė (derived) klasė - Data.
