@@ -1,6 +1,7 @@
 #include "header.h"
+#include "Header1.h"
 
-void ivestis(data& a, int& n)
+void ivestis(d& a, int& n)
 {
 	string anw; //ats: suvesti ar generuoti pazymius
 	char x; //skirtas patikrinti ar ivedamas pazymys yra skaicius
@@ -86,7 +87,7 @@ void ivestis(data& a, int& n)
 	} while (y == 0);
 
 }
-void rezultatai(data& a)
+void rezultatai(d& a)
 {
 	cout << setw(20) << a.getvard() << " | " << setw(20) << a.getpav() << " | ";
 
@@ -94,11 +95,11 @@ void rezultatai(data& a)
 
 	cout << setw(20) << setprecision(2) << fixed << a.getmed() << endl;
 }
-bool rikiavimas(const data& a, const data& b)
+bool rikiavimas(const d& a, const d& b)
 {
 	return a.getvard() < b.getvard();
 }
-void galutinisvid(data& a, int& n) //su vidurkiu
+void galutinisvid(d& a, int& n) //su vidurkiu
 {
 	double vid;
 	int suma;
@@ -119,7 +120,7 @@ void galutinisvid(data& a, int& n) //su vidurkiu
 	vidurkis = 0.4 * vid + 0.6 * a.getegz();
 	a.setvid(vidurkis);
 }
-void galutinismed(data& a, int& n, vector<data>& sarasas)//su mediana
+void galutinismed(d& a, int& n, Vector<d>& sarasas)//su mediana
 {
 	double med;
 	double mediana;
@@ -139,7 +140,7 @@ void galutinismed(data& a, int& n, vector<data>& sarasas)//su mediana
 	a.setmed(mediana);
 
 }
-void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, vector<data>& vargsiukai)
+void fskaitymas(d&a, int& n, Vector<d>& sarasas, Vector<d>& kietiakai, Vector<d>& vargsiukai)
 {
 	//----------------------------------------------------------------------
 	int r;
@@ -251,7 +252,7 @@ void fskaitymas(data&a, int& n, vector<data>& sarasas, vector<data>& kietiakai, 
 		cout << "Studentu isvedimas i du naujus failus: " << t3.elapsed() << " s" << endl;
 
 }
-void firasimas(data& a, int& n, vector<data>& sarasas)
+void firasimas(d& a, int& n, Vector<d>& sarasas)
 {
 	std::ofstream out_f("kursiokai_cop.txt");
 

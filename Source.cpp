@@ -1,11 +1,11 @@
 #include "header.h"
 
-data::~data() //destructor
+d::~d() //destructor
 {
     std::fill_n(paz, 20, 0);
 }
 
-data::data(const data& d) // copy konstruktorius
+d::d(const d& d) // copy konstruktorius
 {
     vard = d.vard;
     pav = d.pav;
@@ -14,7 +14,7 @@ data::data(const data& d) // copy konstruktorius
     medrezult = d.medrezult;
 }
 
-data& data::operator=(const data& d) //copy assignment
+d& d::operator=(const d& d) //copy assignment
 { 
     if (&d == this) return *this;
     vard = d.vard;
@@ -25,18 +25,18 @@ data& data::operator=(const data& d) //copy assignment
     return *this;
 }
 
-void data::setmed(double sk) { medrezult = sk; }
-double data::getmed() const { return medrezult; }
+void d::setmed(double sk) { medrezult = sk; }
+double d::getmed() const { return medrezult; }
 
-void data::setvid(double sk) { vidrezult = sk; }
-double data::getvid() const { return vidrezult; }
+void d::setvid(double sk) { vidrezult = sk; }
+double d::getvid() const { return vidrezult; }
 
-void data::setegz(double sk) { egz = sk; }
-int data::getegz() const { return egz; }
+void d::setegz(double sk) { egz = sk; }
+int d::getegz() const { return egz; }
 
-void data::setpaz(int i, double sk) { paz[i] = sk; }
-int data::getpaz(int i) const { return paz[i]; }
+void d::setpaz(int i, double sk) { paz[i] = sk; }
+int d::getpaz(int i) const { return paz[i]; }
 
-void data::setvard(string vardas) { vard = vardas; }
-void data::setpav(string pavarde) { pav = pavarde; }
+void d::setvard(string vardas) { vard = vardas; }
+void d::setpav(string pavarde) { pav = pavarde; }
 

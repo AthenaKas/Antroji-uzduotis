@@ -1,16 +1,17 @@
 ﻿//Source-vektoriai MAIN
 #include "header.h"
+#include "Header1.h"
 
 
 int main()
 {
 	
 	long long int N = 1;
-	vector<data> sarasas;
-	vector<data> vargsiukai;
-	vector<data> kietiakai;
+	Vector<d> sarasas;
+	Vector<d> vargsiukai;
+	Vector<d> kietiakai;
 	
-	data laik;
+	d laik;
 	string anw; // ats: apie dar vieno studento duomenu vedima
 	string Ranw; //ats: duomenu gavimo pasirinkimas
 	int n = 0; //kiekis pazymiu
@@ -239,10 +240,11 @@ int main()
 			rezultatai(sarasas[i]);
 		}
 	}
-
 		sarasas.clear();
 		vargsiukai.clear();
 		kietiakai.clear();
 
 		cout << "Visos programos veikimas " << t.elapsed() << " s" << endl;
+		
+		system("pause");
 }
