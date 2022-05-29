@@ -55,4 +55,9 @@ Vector Output: 0
 
 std::vector Output: 0
 
+4. Spartos analizę, naudojant duomenų failą su 100000 studentų įrašų
+
+![image](https://user-images.githubusercontent.com/99173750/170885206-769d3993-f3bf-4a6e-bb2a-2e08581848cf.png)
+
+
 
